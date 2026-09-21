@@ -334,27 +334,28 @@ function setLoading(loading) {
 
 async function submitForm(data) {
   /**
-   * We send as JSON. Google Apps Script's doPost(e) receives
-   * it via e.postData.contents. See Code.gs for the GAS handler.
-   *
-   * NOTE: Because GAS redirects (302) after deployment, we use
-   * mode: 'no-cors' as a fallback, which means we cannot read
-   * the response body. The README explains an alternative using
-   * a JSONP-style callback if you need full response visibility.
+   * URLSearchParams is the most reliable method for Google Apps Script.
+   * GAS automatically parses URL-encoded POST bodies into e.parameter.
+   * This avoids all CORS and JSON parsing issues.
    */
-  const response = await fetch(SCRIPT_URL, {
+  const params = new URLSearchParams();
+  params.append('name',                data.name);
+  params.append('mobile',              data.mobile);
+  params.append('whatsapp',            data.whatsapp);
+  params.append('institution',         data.institution);
+  params.append('class',               data.class);
+  params.append('subject_group',       data.subject_group);
+  params.append('gender',              data.gender);
+  params.append('scouting_experience', data.scouting_experience);
+  params.append('scouting_details',    data.scouting_details);
+
+  await fetch(SCRIPT_URL, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'text/plain', // GAS requires plain text for no-cors JSON
-    },
-    body: JSON.stringify(data),
-    // Use 'no-cors' so browser doesn't block the request.
-    // This means response.ok will be false; handle below.
-    mode: 'no-cors',
+    body: params,
+    mode: 'no-cors', // Required for GAS — response will be opaque but data IS saved
   });
 
-  // With no-cors the response type is 'opaque' — treat any resolved
-  // promise as a success (network error throws, which we catch).
+  // With no-cors, any resolved promise = success (network errors throw)
   return true;
 }
 

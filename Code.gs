@@ -63,22 +63,24 @@ function doOptions(e) {
 function doPost(e) {
   try {
     // --- Parse incoming data ---
-    var raw  = e.postData ? e.postData.contents : '';
-    var data = {};
+    // GAS automatically parses URLSearchParams POST bodies into e.parameter
+    var data = e.parameter || {};
 
-    if (raw) {
-      try {
-        data = JSON.parse(raw);
-      } catch (parseErr) {
-        // Fallback: try URL-encoded form data
-        data = {};
-        var pairs = raw.split('&');
-        pairs.forEach(function(pair) {
-          var kv = pair.split('=');
-          if (kv.length === 2) {
-            data[decodeURIComponent(kv[0])] = decodeURIComponent(kv[1].replace(/\+/g, ' '));
-          }
-        });
+    // Fallback: also try postData if e.parameter is empty
+    if (!data || Object.keys(data).length === 0) {
+      var raw = e.postData ? e.postData.contents : '';
+      if (raw) {
+        try {
+          data = JSON.parse(raw);
+        } catch (parseErr) {
+          data = {};
+          raw.split('&').forEach(function(pair) {
+            var kv = pair.split('=');
+            if (kv.length === 2) {
+              data[decodeURIComponent(kv[0])] = decodeURIComponent(kv[1].replace(/\+/g, ' '));
+            }
+          });
+        }
       }
     }
 
