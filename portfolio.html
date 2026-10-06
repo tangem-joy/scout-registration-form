@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ময়মনসিংহ মেট্রোপলিটন ওপেন স্কাউট গ্রুপ - অফিসিয়াল পোর্টফোলিও ওয়েবসাইট।" />
+  <title>ময়মনসিংহ মেট্রোপলিটন ওপেন স্কাউট গ্রুপ</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #1a7a3c;
+      --primary-dark: #135e2e;
+      --primary-light: #25a855;
+      --accent: #f0b429;
+      --accent-dark: #c87f00;
+      --text-main: #1c2b22;
+      --text-muted: #55695d;
+      --bg-light: #f7faf8;
+      --bg-white: #ffffff;
+      --border-color: #d8e8dc;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 24px rgba(26,122,60,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: var(--bg-white);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .nav-container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--primary-dark);
+    }
+
+    .brand img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+    }
+
+    .brand-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      line-height: 1.2;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-nav {
+      background: var(--primary);
+      color: #fff !important;
+      padding: 7px 18px;
+      border-radius: 50px;
+      transition: background 0.3s;
+    }
+
+    .btn-nav:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+      color: #fff;
+      padding: 70px 20px 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      opacity: 0.95;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1a3821;
+      box-shadow: 0 4px 15px rgba(240, 180, 41, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: #e0a318;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.4);
+      backdrop-filter: blur(5px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Branches Cards */
+    .branches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .branch-card {
+      background: var(--bg-white);
+      border-radius: 16px;
+      padding: 30px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .branch-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .branch-badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 15px;
+    }
+
+    .branch-card h3 {
+      font-size: 1.4rem;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    /* Leadership Section */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .team-card {
+      background: var(--bg-white);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .role-tag {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .team-card h4 {
+      font-size: 1.2rem;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .team-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .phone-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 8px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Affiliation Notice Box */
+    .affiliation-box {
+      background: #eef7f1;
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+      padding: 20px 25px;
+      margin-bottom: 45px;
+    }
+
+    .affiliation-box p {
+      font-size: 1.05rem;
+      color: #1a4d2c;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background: #142a1b;
+      color: #d1ded5;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+      border-top: 4px solid var(--accent);
+    }
+
+    footer p {
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <img src="logo.png" alt="Scout Logo" />
+        <span class="brand-title">ময়মনসিংহ মেট্রোপলিটন<br/>ওপেন স্কাউট গ্রুপ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">পরিচিতি</a></li>
+        <li><a href="#branches">শাখা সমূহ</a></li>
+        <li><a href="#leadership">নেতৃত্ব</a></li>
+        <li><a href="index.html" class="btn-nav">ভর্তি ফরম</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <header class="hero">
+    <div class="hero-content">
+      <img src="logo.png" alt="Mymensingh Metropolitan Open Scout Group Logo" class="hero-logo" />
+      <h1>ময়মনসিংহ মেট্রোপলিটন ওপেন স্কাউট গ্রুপ</h1>
+      <p class="hero-sub">বাংলাদেশ স্কাউটস, ময়মনসিংহ জেলা রোভার কর্তৃক পরিচালিত একটি সুশৃঙ্খল ও সক্রিয় রোভার স্কাউট দল</p>
+      
+      <div class="hero-buttons">
+        <!-- ভর্তি ফরম Link সংযুক্ত করা হয়েছে (কোনো পরিবর্তন ছাড়া) -->
+        <a href="index.html" class="btn btn-primary" title="ভর্তি ফরম পূরণ করুন">
+          📄 ভর্তি ফরম
+        </a>
+        <a href="#branches" class="btn btn-secondary">
+          আমাদের শাখা সমূহ
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ========== পরিচিতি ও স্বীকৃতি ========== -->
+    <section id="about">
+      <div class="affiliation-box">
+        <p>
+          ⚜️ <strong>অধিভুক্তি ও পরিচালনা:</strong> বাংলাদেশ স্কাউটস রোভার অঞ্চলের আওতাধীন এবং বাংলাদেশ স্কাউটস, ময়মনসিংহ জেলা রোভারের সার্বিক তত্ত্বাবধানে পরিচালিত।
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== শাখা সমূহ (চালান শাখা) ========== -->
+    <section id="branches" style="margin-bottom: 55px;">
+      <div class="section-title">
+        <h2>আমাদের রেজিস্টার্ড শাখাসমূহ</h2>
+      </div>
+
+      <div class="branches-grid">
+        <!-- বালক শাখা -->
+        <div class="branch-card">
+          <span class="branch-badge">ছেলে সদস্য</span>
+          <h3>৮৪ নং ময়মনসিংহ মেট্রোপলিটন ওপেন স্কাউট গ্রুপ</h3>
+          <p>ছেলে রোভার স্কাউট সদস্যদের দক্ষতা, নেতৃত্ব ও সমাজসেবামূলক কার্যক্রমে অংশ নিতে পরিচালিত অফিসিয়াল ইউনিট।</p>
+        </div>
+
+        <!-- বালিকা শাখা -->
+        <div class="branch-card">
+          <span class="branch-badge" style="background:#e07b22;">মেয়ে সদস্য</span>
+          <h3>৮৫ নং ময়মনসিংহ মেট্রোপলিটন ওপেন স্কাউট গ্রুপ (গার্ল)</h3>
+          <p>নারী সদস্যদের সার্বিক ব্যক্তিত্ব বিকাশ, স্কাউটিং প্রশিক্ষণ ও আত্মনির্ভরশীলতা অর্জনের জন্য নিবন্ধিত বিশেষায়িত ইউনিট।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== নেতৃত্ব ও প্রশাসন ========== -->
+    <section id="leadership">
+      <div class="section-title">
+        <h2>গ্রুপ প্রশাসন ও নেতৃত্ব</h2>
+      </div>
+
+      <!-- কেন্দ্রীয় প্রশাসন -->
+      <div class="team-grid" style="margin-bottom: 30px;">
+        <div class="team-card">
+          <span class="role-tag">গ্রুপ সভাপতি</span>
+          <h4>আশিক স্যার</h4>
+          <p>ময়মনসিংহ মেট্রোপলিটন ওপেন স্কাউট গ্রুপ</p>
+        </div>
+
+        <div class="team-card">
+          <span class="role-tag">গ্রুপ সম্পাদক</span>
+          <h4>মো: সাইফুল ইসলাম - এএলটি</h4>
+          <p>ময়মনসিংহ মেট্রোপলিটন ওপেন স্কাউট গ্রুপ</p>
+        </div>
+      </div>
+
+      <!-- রোভার স্কাউট লিডারগণ -->
+      <h3 style="margin-bottom: 18px; color: var(--primary-dark); text-align: center;">রোভার স্কাউট লিডার (RSL)</h3>
+      <div class="team-grid" style="margin-bottom: 35px;">
+        <div class="team-card">
+          <span class="role-tag">রোভার স্কাউট লিডার (ছেলে শাখা)</span>
+          <h4>ফারুক হোসেন</h4>
+          <p>৮৪ নং ইউনিট</p>
+        </div>
+
+        <div class="team-card">
+          <span class="role-tag">রোভার স্কাউট লিডার (মেয়ে শাখা)</span>
+          <h4>মোরসালিনা আক্তার</h4>
+          <p>৮৫ নং ইউনিট (গার্ল)</p>
+        </div>
+      </div>
+
+      <!-- সিনিয়র রোভার মেট -->
+      <h3 style="margin-bottom: 18px; color: var(--primary-dark); text-align: center;">সিনিয়র রোভার মেট (SRM)</h3>
+      <div class="team-grid">
+        <div class="team-card">
+          <span class="role-tag">সিনিয়র রোভার মেট (ছেলে শাখা)</span>
+          <h4>তানজীম তালুকদার জয়</h4>
+          <p>৮৪ নং ইউনিট</p>
+          <a href="tel:01595306172" class="phone-link">
+            📞 01595306172
+          </a>
+        </div>
+
+        <div class="team-card">
+          <span class="role-tag">সিনিয়র রোভার মেট (মেয়ে শাখা)</span>
+          <h4>মোছাঃ তামান্না খাতুন</h4>
+          <p>৮৫ নং ইউনিট (গার্ল)</p>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 ময়মনসিংহ মেট্রোপলিটন ওপেন স্কাউট গ্রুপ | বাংলাদেশ স্কাউটস</p>
+  </footer>
+
+</body>
+</html>
